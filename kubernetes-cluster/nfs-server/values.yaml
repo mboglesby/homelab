@@ -1,0 +1,10 @@
+persistence:
+  enabled: true
+  storageClass: "-"
+  size: 50Gi
+
+storageClass:
+  defaultClass: true
+
+nodeSelector:
+  kubernetes.io/hostname: node3
