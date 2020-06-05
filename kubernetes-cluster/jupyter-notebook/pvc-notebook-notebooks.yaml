@@ -2,7 +2,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: notebook-home
+  name: notebook-notebooks
 spec:
   accessModes:
     - ReadWriteMany

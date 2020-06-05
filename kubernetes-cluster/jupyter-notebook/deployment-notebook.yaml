@@ -15,9 +15,12 @@ spec:
         app: notebook
     spec:
       volumes:
-      - name: home
+      - name: notebooks
         persistentVolumeClaim:
-          claimName: notebook-home
+          claimName: notebook-notebooks
+      - name: config
+        persistentVolumeClaim:
+          claimName: notebook-config
       containers:
       - name: notebook
         image: jupyter/tensorflow-notebook
@@ -25,5 +28,7 @@ spec:
         - containerPort: 8888
         - containerPort: 6006
         volumeMounts:
-        - mountPath: "/home/jovyan"
-          name: home
+        - mountPath: "/home/jovyan/work"
+          name: notebooks
+        - mountPath: "/home/jovyan/.jupyter"
+          name: config
